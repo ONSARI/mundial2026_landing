@@ -69,15 +69,6 @@
             justify-content: center;
         }
         
-        .ticket-bar {
-            background: linear-gradient(90deg, 
-                rgba(0,243,255,0.05) 0%, 
-                rgba(0,243,255,0.15) 50%, 
-                rgba(0,243,255,0.05) 100%
-            );
-            border: 1px solid rgba(0,243,255,0.3);
-        }
-        
         .phone-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -98,17 +89,32 @@
             font-variant-numeric: tabular-nums;
         }
         
+        /* PHONE - RECORTE CSS PARA CENTRAR */
         .phone-container {
             overflow: hidden;
-            margin-left: -15%;
+            position: relative;
+        }
+        .phone-container img {
+            position: relative;
+            left: 50%;
+            transform: translateX(-60%);
         }
         
-        .ticket-rotate {
-            transform: rotate(-8deg);
-            transition: transform 0.3s ease;
+        /* TICKET - FONDO NEGRO Y SOBRESALE */
+        .ticket-section {
+            background: #0a0a1a;
+            border: 2px solid rgba(0,243,255,0.4);
+            position: relative;
+            overflow: visible;
         }
-        .ticket-rotate:hover {
-            transform: rotate(-5deg) scale(1.05);
+        
+        .ticket-img {
+            position: absolute;
+            left: -30px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-12deg);
+            z-index: 10;
+            filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.4));
         }
     </style>
 </head>
@@ -219,15 +225,15 @@
     </section>
 
     <!-- POZO GLOBAL BAR -->
-    <section class="py-8 px-4">
-        <div class="max-w-2xl mx-auto ticket-bar rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-center gap-6">
-            <!-- Ticket (MÁS GRANDE Y EN DIAGONAL) -->
-            <img src="assets/golden-ticket.png" alt="Golden Ticket" class="h-24 md:h-32 ticket-rotate">
+    <section class="py-10 px-4">
+        <div class="max-w-2xl mx-auto ticket-section rounded-2xl p-6 pl-32 sm:pl-40 flex items-center justify-center gap-6 relative">
+            <!-- Ticket SOBRESALIENDO -->
+            <img src="assets/golden-ticket.png" alt="Golden Ticket" class="ticket-img h-28 sm:h-36 md:h-44">
             
             <!-- Counter -->
             <div class="text-center sm:text-left">
-                <p class="text-xs text-gray-400 uppercase tracking-wider">Pozo Acumulado Actual:</p>
-                <p class="font-mono text-3xl md:text-4xl font-bold text-white counter-digit">
+                <p class="text-sm text-gray-400 uppercase tracking-wider">Pozo Acumulado Actual:</p>
+                <p class="font-mono text-3xl md:text-5xl font-bold text-white counter-digit">
                     US$ <span id="jackpot">62,295.00</span>
                 </p>
             </div>
@@ -235,18 +241,18 @@
     </section>
 
     <!-- PAYMENT METHODS -->
-    <section class="py-6 px-4">
-        <div class="max-w-2xl mx-auto text-center">
-            <p class="text-xs text-gray-500 uppercase tracking-widest mb-4">Métodos de Pago Aceptados</p>
-            <div class="flex flex-wrap justify-center items-center gap-8">
+    <section class="py-8 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-xs text-gray-500 uppercase tracking-widest mb-6">Métodos de Pago Aceptados</p>
+            <div class="flex flex-wrap justify-center items-center gap-10">
                 <!-- Mercado Pago -->
-                <img src="assets/mercadopago.png" alt="Mercado Pago" class="h-10 md:h-12 opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/mercadopago.png" alt="Mercado Pago" class="h-16 md:h-20 opacity-80 hover:opacity-100 transition-opacity">
                 <!-- Pix -->
-                <img src="assets/pix.png" alt="Pix Brasil" class="h-16 md:h-20 opacity-80 hover:opacity-100 transition-opacity">
+                <img src="assets/pix.png" alt="Pix Brasil" class="h-20 md:h-28 opacity-80 hover:opacity-100 transition-opacity">
                 <!-- USDT -->
-                <div class="flex items-center gap-1 opacity-80 hover:opacity-100 transition-opacity">
-                    <img src="assets/usdt.png" alt="USDT" class="h-6 md:h-8">
-                    <span class="text-sm font-bold text-gray-400">USDT</span>
+                <div class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="assets/usdt.png" alt="USDT" class="h-10 md:h-14">
+                    <span class="text-lg md:text-xl font-bold text-gray-400">USDT</span>
                 </div>
             </div>
         </div>
