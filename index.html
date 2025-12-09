@@ -69,7 +69,6 @@
             justify-content: center;
         }
         
-        /* PHONE FLOAT CON CENTRADO */
         .phone-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -90,7 +89,6 @@
             font-variant-numeric: tabular-nums;
         }
         
-        /* PHONE - CENTRADO + GLOW NEON */
         .phone-container {
             overflow: hidden;
             position: relative;
@@ -113,7 +111,6 @@
             z-index: 1;
         }
         
-        /* TICKET - FONDO NEGRO Y SOBRESALE */
         .ticket-section {
             background: #0a0a1a;
             border: 2px solid rgba(0,243,255,0.4);
@@ -133,7 +130,6 @@
 </head>
 <body class="text-white font-body antialiased">
 
-    <!-- HERO SECTION -->
     <section class="relative min-h-[70vh] md:min-h-[80vh] flex flex-col">
         <div class="absolute inset-0 z-0">
             <img src="assets/stadium.png" alt="Stadium" class="w-full h-full object-cover object-center">
@@ -162,19 +158,14 @@
         </div>
     </section>
 
-    <!-- TU VISIÓN + EL NEGOCIO -->
     <section class="py-10 px-4 bg-dark">
         <div class="max-w-5xl mx-auto">
             <div class="grid md:grid-cols-2 gap-8 items-center">
                 <div class="text-center">
-                    <h2 class="font-title text-2xl md:text-3xl uppercase mb-1">
-                        TU VISIÓN. TU TARJETA.
-                    </h2>
+                    <h2 class="font-title text-2xl md:text-3xl uppercase mb-1">TU VISIÓN. TU TARJETA.</h2>
                     <p class="text-gray-400 text-sm mb-4">Tarjeta de Legado Ultimate</p>
-                    
                     <div class="phone-container">
-                        <img src="assets/phone-mockup.png" alt="Tarjeta de Predicción" 
-                             class="w-full max-w-xl mx-auto phone-float">
+                        <img src="assets/phone-mockup.png" alt="Tarjeta" class="w-full max-w-xl mx-auto phone-float">
                     </div>
                 </div>
                 
@@ -192,9 +183,7 @@
                             <span class="text-xs font-bold uppercase">Armá</span>
                             <span class="text-xs text-gray-400">Tu Liga</span>
                         </div>
-                        
                         <span class="text-cyan text-lg mt-6">→</span>
-                        
                         <div class="flex flex-col items-center">
                             <div class="hexagon mb-2">
                                 <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,9 +194,7 @@
                             <span class="text-xs text-gray-400">Automáticos</span>
                             <span class="text-[10px] text-gray-500">Pix·MP·Crypto</span>
                         </div>
-                        
                         <span class="text-cyan text-lg mt-6">→</span>
-                        
                         <div class="flex flex-col items-center">
                             <div class="hexagon mb-2">
                                 <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -223,11 +210,9 @@
         </div>
     </section>
 
-    <!-- POZO GLOBAL BAR -->
     <section class="py-10 px-4">
         <div class="max-w-2xl mx-auto ticket-section rounded-2xl p-6 pl-32 sm:pl-40 flex items-center justify-center gap-6 relative">
             <img src="assets/golden-ticket.png" alt="Golden Ticket" class="ticket-img h-28 sm:h-36 md:h-44">
-            
             <div class="text-center sm:text-left">
                 <p class="text-sm text-gray-400 uppercase tracking-wider">Pozo Acumulado Actual:</p>
                 <p class="font-mono text-3xl md:text-5xl font-bold text-white counter-digit">
@@ -237,7 +222,6 @@
         </div>
     </section>
 
-    <!-- PAYMENT METHODS -->
     <section class="py-8 px-4">
         <div class="max-w-3xl mx-auto text-center">
             <p class="text-xs text-gray-500 uppercase tracking-widest mb-6">Métodos de Pago Aceptados</p>
@@ -252,7 +236,6 @@
         </div>
     </section>
 
-    <!-- JERSEY / PRIZE -->
     <section class="py-10 px-4 relative overflow-hidden">
         <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="text-center md:text-left flex-1">
@@ -264,12 +247,11 @@
                 <p class="text-gray-400 text-base md:text-lg">+ Camiseta firmada por los campeones del mundo</p>
             </div>
             <div class="w-64 md:w-80 lg:w-96">
-                <img src="assets/jersey.png" alt="Camiseta Argentina Firmada" class="w-full jersey-float">
+                <img src="assets/jersey.png" alt="Camiseta Argentina" class="w-full jersey-float">
             </div>
         </div>
     </section>
 
-    <!-- FINAL CTA -->
     <section class="py-10 px-4 text-center">
         <h2 class="font-title text-3xl md:text-4xl uppercase mb-4">
             ¿Vas a mirar o <span class="gold-text">vas a jugar</span>?
@@ -280,12 +262,10 @@
         <p class="text-gray-500 text-sm mt-4">Acceso anticipado para los primeros 1,000 usuarios</p>
     </section>
 
-    <!-- FOOTER -->
     <footer class="py-6 px-4 border-t border-white/5">
         <div class="max-w-xl mx-auto text-center">
             <p class="text-gray-600 text-[10px] max-w-lg mx-auto mb-2">
-                <strong>AVISO LEGAL:</strong> Mundial2026.bet es una plataforma independiente de juegos de habilidad y pronósticos deportivos. 
-                No estamos afiliados con la FIFA ni con ninguno de sus comités organizadores.
+                <strong>AVISO LEGAL:</strong> Mundial2026.bet es una plataforma independiente. No estamos afiliados con la FIFA.
             </p>
             <p class="text-gray-700 text-[10px]">© 2025 Mundial2026.bet - Powered by Whapay Inc.</p>
         </div>
@@ -294,17 +274,28 @@
     <script>
         const jackpotElement = document.getElementById('jackpot');
         let currentAmount = 62295.00;
-
         function updateJackpot() {
-            const increment = Math.random() * 2 + 0.5;
-            currentAmount += increment;
-            jackpotElement.innerText = currentAmount.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
+            currentAmount += Math.random() * 2 + 0.5;
+            jackpotElement.innerText = currentAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
         }
-
         setInterval(updateJackpot, 3000);
     </script>
 </body>
 </html>
+```
+
+---
+
+**Estructura de carpetas que necesitás:**
+```
+tu-repo/
+├── index.html
+└── assets/
+    ├── stadium.png
+    ├── fifa-logo.png
+    ├── phone-mockup.png
+    ├── golden-ticket.png   ← el nuevo sin fondo
+    ├── jersey.png
+    ├── mercadopago.png
+    ├── pix.png
+    └── usdt.png
