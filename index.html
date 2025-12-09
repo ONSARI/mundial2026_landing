@@ -24,8 +24,8 @@
                         body: ['Inter', 'sans-serif'],
                     },
                     backgroundImage: {
-                        // FONDO: Usa tu archivo stadium.jpg
-                        'hero-pattern': "linear-gradient(to bottom, rgba(5,5,5,0.6), rgba(5,5,5,1)), url('./assets/stadium.jpg')",
+                        // FIX: Quitamos "/assets/" para buscar en la raíz
+                        'hero-pattern': "linear-gradient(to bottom, rgba(5,5,5,0.6), rgba(5,5,5,1)), url('stadium.jpg')",
                     }
                 }
             }
@@ -53,7 +53,7 @@
     <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="./assets/fifa-logo.jpg" class="h-12 w-auto grayscale brightness-200 contrast-125 mix-blend-screen" alt="Logo FIFA"> 
+                <img src="fifa-logo.jpg" class="h-12 w-auto grayscale brightness-200 contrast-125 mix-blend-screen" alt="Logo FIFA"> 
                 <div class="text-2xl font-title tracking-wider text-white">MUNDIAL<span class="text-gold">2026</span>.BET</div>
             </div>
             <div class="hidden md:flex gap-4">
@@ -97,7 +97,7 @@
             <div class="relative z-10 flex justify-center md:justify-end">
                 <div class="absolute inset-0 bg-gold/20 blur-[100px] rounded-full transform scale-75"></div>
                 
-                <img src="./assets/phone-mockup.jpg" 
+                <img src="phone-mockup.jpg" 
                      class="relative w-[300px] md:w-[400px] animate-float drop-shadow-2xl transform rotate-[-5deg] hover:rotate-0 transition duration-500 rounded-3xl" 
                      alt="App Mockup Mundial 2026">
                      
@@ -116,7 +116,7 @@
         
         <div class="max-w-5xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div class="flex-shrink-0 transform -rotate-6 transition group-hover:rotate-0 duration-500">
-                <img src="./assets/golden-ticket.jpg" class="w-64 rounded-lg drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]" alt="Golden Ticket">
+                <img src="golden-ticket.jpg" class="w-64 rounded-lg drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]" alt="Golden Ticket">
             </div>
 
             <div class="text-center md:text-right flex-1">
@@ -178,7 +178,7 @@
             <div class="order-1 md:order-2 relative group cursor-pointer">
                 <div class="absolute inset-0 bg-cyan/20 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition duration-700"></div>
                 <div class="relative bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl rotate-2 group-hover:rotate-0 transition duration-500">
-                    <img src="./assets/jersey.jpg" class="rounded shadow-2xl w-full object-cover grayscale group-hover:grayscale-0 transition duration-500" alt="Camiseta Firmada Messi">
+                    <img src="jersey.jpg" class="rounded shadow-2xl w-full object-cover grayscale group-hover:grayscale-0 transition duration-500" alt="Camiseta Firmada Messi">
                     <div class="absolute bottom-4 left-4 bg-black/90 px-3 py-1 text-xs text-gold font-bold uppercase rounded border border-gold/30">
                         Premio Real - Colección 2026
                     </div>
