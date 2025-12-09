@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundial 2026 - El Mundial No Se Mira. Se Juega.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#050510',
+                        gold: '#D4AF37',
+                        'gold-light': '#F3E5AB',
+                        cyan: '#00F3FF',
+                    },
+                    fontFamily: {
+                        title: ['Anton', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { 
+            background: #050510;
+            overflow-x: hidden;
+        }
+        
+        .gold-text {
+            background: linear-gradient(180deg, #F3E5AB 0%, #D4AF37 50%, #B38728 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .btn-gold {
+            background: linear-gradient(180deg, #F3E5AB 0%, #D4AF37 50%, #B38728 100%);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.7);
+            transform: scale(1.02);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(180deg, 
+                rgba(5,5,16,0.3) 0%, 
+                rgba(5,5,16,0.7) 50%, 
+                rgba(5,5,16,0.95) 100%
+            );
+        }
+        
+        .hexagon {
+            width: 70px;
+            height: 80px;
+            background: rgba(0,243,255,0.1);
+            border: 1px solid rgba(0,243,255,0.4);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ticket-bar {
+            background: linear-gradient(90deg, 
+                rgba(0,243,255,0.05) 0%, 
+                rgba(0,243,255,0.15) 50%, 
+                rgba(0,243,255,0.05) 100%
+            );
+            border: 1px solid rgba(0,243,255,0.3);
+        }
+        
+        .phone-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .jersey-float {
+            animation: jerseyFloat 5s ease-in-out infinite;
+        }
+        @keyframes jerseyFloat {
+            0%, 100% { transform: translateY(0px) rotate(2deg); }
+            50% { transform: translateY(-10px) rotate(-2deg); }
+        }
+        
+        .counter-digit {
+            font-variant-numeric: tabular-nums;
+        }
+        
+        /* PHONE - GLOW NEON */
+        .phone-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .phone-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(0,243,255,0.4) 0%, rgba(212,175,55,0.25) 40%, transparent 70%);
+            filter: blur(50px);
+            z-index: 0;
+        }
+        .phone-container img {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* TICKET - FONDO NEGRO Y SOBRESALE */
+        .ticket-section {
+            background: #0a0a1a;
+            border: 2px solid rgba(0,243,255,0.4);
+            position: relative;
+            overflow: visible;
+        }
+        
+        .ticket-img {
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-12deg);
+            z-index: 10;
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5));
+        }
+        
+        .ticket-rotate {
+            transform: rotate(-8deg);
+            transition: transform 0.3s ease;
+        }
+        .ticket-rotate:hover {
+            transform: rotate(-5deg) scale(1.05);
+        }
+    </style>
+</head>
+<body class="text-white font-body antialiased">
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[70vh] md:min-h-[80vh] flex flex-col">
+        <!-- Stadium Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/stadium.png" alt="Stadium" class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 pt-8 pb-4">
+            <!-- FIFA Logo -->
+            <div class="mb-4">
+                <img src="assets/fifa-logo.png" alt="FIFA 2026" class="h-24 md:h-36 mx-auto opacity-90">
+            </div>
+            
+            <!-- Main Headline -->
+            <h1 class="font-title text-5xl md:text-7xl leading-[0.9] uppercase mb-4">
+                EL MUNDIAL<br>
+                <span class="text-gray-400">NO SE MIRA.</span><br>
+                <span class="gold-text">SE JUEGA.</span>
+            </h1>
+            
+            <!-- Subtitle -->
+            <p class="text-base md:text-lg text-gray-300 max-w-md mx-auto mb-6">
+                Creá tu predicción. Desafiá a tus amigos.<br>
+                Ganá dinero real organizando tu liga.
+            </p>
+            
+            <!-- CTA Button -->
+            <button class="btn-gold text-dark font-title text-xl md:text-2xl py-4 px-10 rounded-lg uppercase tracking-wider">
+                CREAR MI LEGADO AHORA
+            </button>
+        </div>
+    </section>
+
+    <!-- TU VISIÓN + EL NEGOCIO -->
+    <section class="py-10 px-4 bg-dark">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <!-- Left: Phone + Title (MÁS GRANDE) -->
+                <div class="text-center">
+                    <h2 class="font-title text-2xl md:text-3xl uppercase mb-1">
+                        TU VISIÓN. TU TARJETA.
+                    </h2>
+                    <p class="text-gray-400 text-sm mb-4">Tarjeta de Legado Ultimate</p>
+                    
+                    <div class="phone-container">
+                        <img src="assets/phone-mockup.png" alt="Tarjeta de Predicción" 
+                             class="w-full max-w-sm mx-auto phone-float">
+                    </div>
+                </div>
+                
+                <!-- Right: El Negocio -->
+                <div class="text-center md:text-left">
+                    <h3 class="font-title text-2xl md:text-3xl uppercase mb-1">EL NEGOCIO</h3>
+                    <p class="text-cyan text-sm font-bold uppercase tracking-wider mb-6">Embajadores Ganan Siempre</p>
+                    
+                    <!-- 3 Steps Hexagonal -->
+                    <div class="flex items-start justify-center md:justify-start gap-3">
+                        <!-- Step 1 -->
+                        <div class="flex flex-col items-center">
+                            <div class="hexagon mb-2">
+                                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold uppercase">Armá</span>
+                            <span class="text-xs text-gray-400">Tu Liga</span>
+                        </div>
+                        
+                        <!-- Arrow -->
+                        <span class="text-cyan text-lg mt-6">→</span>
+                        
+                        <!-- Step 2 -->
+                        <div class="flex flex-col items-center">
+                            <div class="hexagon mb-2">
+                                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold uppercase">Pagos</span>
+                            <span class="text-xs text-gray-400">Automáticos</span>
+                            <span class="text-[10px] text-gray-500">Pix·MP·Crypto</span>
+                        </div>
+                        
+                        <!-- Arrow -->
+                        <span class="text-cyan text-lg mt-6">→</span>
+                        
+                        <!-- Step 3 -->
+                        <div class="flex flex-col items-center">
+                            <div class="hexagon mb-2">
+                                <svg class="w-7 h-7 text-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <span class="text-xs font-bold uppercase">Cobrá %</span>
+                            <span class="text-xs text-gray-400">Por Organizador</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POZO GLOBAL BAR -->
+    <section class="py-10 px-4">
+        <div class="max-w-2xl mx-auto ticket-section rounded-2xl p-6 pl-20 sm:pl-24 flex items-center justify-center gap-6 relative">
+            <!-- Ticket SOBRESALIENDO -->
+            <img src="assets/golden-ticket.png" alt="Golden Ticket" class="ticket-img h-12 sm:h-14 md:h-18">
+            
+            <!-- Counter -->
+            <div class="text-center sm:text-left">
+                <p class="text-sm text-gray-400 uppercase tracking-wider">Pozo Acumulado Actual:</p>
+                <p class="font-mono text-3xl md:text-5xl font-bold text-white counter-digit">
+                    US$ <span id="jackpot">62,295.00</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAYMENT METHODS (LOGOS REALES) -->
+    <section class="py-8 px-4">
+        <div class="max-w-3xl mx-auto text-center">
+            <p class="text-xs text-gray-500 uppercase tracking-widest mb-6">Métodos de Pago Aceptados</p>
+            <div class="flex flex-wrap justify-center items-center gap-10">
+                <!-- Mercado Pago (MÁS GRANDE) -->
+                <img src="assets/mercadopago.png" alt="Mercado Pago" class="h-16 md:h-20 opacity-80 hover:opacity-100 transition-opacity">
+                <!-- Pix (MÁS GRANDE) -->
+                <img src="assets/pix.png" alt="Pix Brasil" class="h-20 md:h-28 opacity-80 hover:opacity-100 transition-opacity">
+                <!-- USDT (MÁS GRANDE) -->
+                <div class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
+                    <img src="assets/usdt.png" alt="USDT" class="h-10 md:h-14">
+                    <span class="text-lg md:text-xl font-bold text-gray-400">USDT</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JERSEY / PRIZE (MÁS GRANDE) -->
+    <section class="py-10 px-4 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left flex-1">
+                <p class="text-gold text-sm font-bold uppercase tracking-wider mb-2">✈️ Premio Mega Pozo</p>
+                <h2 class="font-title text-3xl md:text-5xl uppercase mb-2">
+                    2 Pasajes a<br>
+                    <span class="gold-text">La Final NYC</span>
+                </h2>
+                <p class="text-gray-400 text-base md:text-lg">+ Camiseta firmada por los campeones del mundo</p>
+            </div>
+            <div class="w-64 md:w-80 lg:w-96">
+                <img src="assets/jersey.png" alt="Camiseta Argentina Firmada" class="w-full jersey-float">
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="py-10 px-4 text-center">
+        <h2 class="font-title text-3xl md:text-4xl uppercase mb-4">
+            ¿Vas a mirar o <span class="gold-text">vas a jugar</span>?
+        </h2>
+        <button class="btn-gold text-dark font-title text-xl md:text-2xl py-4 px-12 rounded-lg uppercase tracking-wider">
+            CREAR MI LIGA AHORA
+        </button>
+        <p class="text-gray-500 text-sm mt-4">Acceso anticipado para los primeros 1,000 usuarios</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-6 px-4 border-t border-white/5">
+        <div class="max-w-xl mx-auto text-center">
+            <p class="text-gray-600 text-[10px] max-w-lg mx-auto mb-2">
+                <strong>AVISO LEGAL:</strong> Mundial2026.bet es una plataforma independiente de juegos de habilidad y pronósticos deportivos. 
+                No estamos afiliados con la FIFA ni con ninguno de sus comités organizadores.
+            </p>
+            <p class="text-gray-700 text-[10px]">© 2025 Mundial2026.bet - Powered by Whapay Inc.</p>
+        </div>
+    </footer>
+
+    <script>
+        const jackpotElement = document.getElementById('jackpot');
+        let currentAmount = 62295.00;
+
+        function updateJackpot() {
+            const increment = Math.random() * 2 + 0.5;
+            currentAmount += increment;
+            jackpotElement.innerText = currentAmount.toLocaleString('en-US', {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        setInterval(updateJackpot, 3000);
+    </script>
+</body>
+</html>
