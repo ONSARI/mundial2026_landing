@@ -97,6 +97,19 @@
         .counter-digit {
             font-variant-numeric: tabular-nums;
         }
+        
+        .phone-container {
+            overflow: hidden;
+            margin-left: -15%;
+        }
+        
+        .ticket-rotate {
+            transform: rotate(-8deg);
+            transition: transform 0.3s ease;
+        }
+        .ticket-rotate:hover {
+            transform: rotate(-5deg) scale(1.05);
+        }
     </style>
 </head>
 <body class="text-white font-body antialiased">
@@ -147,8 +160,10 @@
                     </h2>
                     <p class="text-gray-400 text-sm mb-4">Tarjeta de Legado Ultimate</p>
                     
-                    <img src="assets/phone-mockup.png" alt="Tarjeta de Predicción" 
-                         class="w-full max-w-lg mx-auto phone-float">
+                    <div class="phone-container">
+                        <img src="assets/phone-mockup.png" alt="Tarjeta de Predicción" 
+                             class="w-full max-w-xl mx-auto phone-float">
+                    </div>
                 </div>
                 
                 <!-- Right: El Negocio -->
@@ -204,15 +219,15 @@
     </section>
 
     <!-- POZO GLOBAL BAR -->
-    <section class="py-6 px-4">
-        <div class="max-w-xl mx-auto ticket-bar rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <!-- Ticket -->
-            <img src="assets/golden-ticket.png" alt="Golden Ticket" class="h-14 md:h-16">
+    <section class="py-8 px-4">
+        <div class="max-w-2xl mx-auto ticket-bar rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-center gap-6">
+            <!-- Ticket (MÁS GRANDE Y EN DIAGONAL) -->
+            <img src="assets/golden-ticket.png" alt="Golden Ticket" class="h-24 md:h-32 ticket-rotate">
             
             <!-- Counter -->
             <div class="text-center sm:text-left">
                 <p class="text-xs text-gray-400 uppercase tracking-wider">Pozo Acumulado Actual:</p>
-                <p class="font-mono text-2xl md:text-3xl font-bold text-white counter-digit">
+                <p class="font-mono text-3xl md:text-4xl font-bold text-white counter-digit">
                     US$ <span id="jackpot">62,295.00</span>
                 </p>
             </div>
