@@ -344,42 +344,178 @@
 </body>
 </html>
 <script>
-// Detectar país y cambiar camiseta + mockup
+// Detectar país, cambiar assets e idioma
 (async function() {
   const countryData = {
-    'AR': { jersey: 'jersey.png', mockup: 'argentina_phone_mockup.png' },
-    'BR': { jersey: 'camiseta_brazil.png', mockup: 'brazil_phone_mockup.png' },
-    'MX': { jersey: 'camiseta_mexico.png', mockup: 'mexico_phone_mockup.png' },
-    'CO': { jersey: 'camiseta_colombia.png', mockup: 'colombia_phone_mockup.png' },
-    'ES': { jersey: 'camiseta_espana.png', mockup: 'espana_phone_mockup.png' },
-    'US': { jersey: 'camiseta_usa.png', mockup: 'usa_phone_mockup.png' },
-    'GB': { jersey: 'camiseta_england.png', mockup: 'england_phone_mockup.png' },
-    'FR': { jersey: 'camiseta_francia.png', mockup: 'francia_phone_mockup.png' },
-    'DE': { jersey: 'camiseta_germany.png', mockup: 'germany_phone_mockup.png' },
-    'PT': { jersey: 'camiseta_portugal.png', mockup: 'portugal_phone_mockup.png' },
-    'CA': { jersey: 'camiseta_usa.png', mockup: 'canada_phone_mockup.png' },
-    'IT': { jersey: 'camiseta_italy.png', mockup: 'general_phone_mockup.png' }
+    'AR': { jersey: 'jersey.png', mockup: 'argentina_phone_mockup.png', lang: 'es' },
+    'MX': { jersey: 'camiseta_mexico.png', mockup: 'mexico_phone_mockup.png', lang: 'es' },
+    'CO': { jersey: 'camiseta_colombia.png', mockup: 'colombia_phone_mockup.png', lang: 'es' },
+    'ES': { jersey: 'camiseta_espana.png', mockup: 'espana_phone_mockup.png', lang: 'es' },
+    'CL': { jersey: 'jersey.png', mockup: 'argentina_phone_mockup.png', lang: 'es' },
+    'PE': { jersey: 'jersey.png', mockup: 'argentina_phone_mockup.png', lang: 'es' },
+    'EC': { jersey: 'jersey.png', mockup: 'argentina_phone_mockup.png', lang: 'es' },
+    'UY': { jersey: 'jersey.png', mockup: 'argentina_phone_mockup.png', lang: 'es' },
+    'BR': { jersey: 'camiseta_brazil.png', mockup: 'brazil_phone_mockup.png', lang: 'pt' },
+    'PT': { jersey: 'camiseta_portugal.png', mockup: 'portugal_phone_mockup.png', lang: 'pt' },
+    'US': { jersey: 'camiseta_usa.png', mockup: 'usa_phone_mockup.png', lang: 'en' },
+    'GB': { jersey: 'camiseta_england.png', mockup: 'england_phone_mockup.png', lang: 'en' },
+    'CA': { jersey: 'camiseta_usa.png', mockup: 'canada_phone_mockup.png', lang: 'en' },
+    'AU': { jersey: 'camiseta_usa.png', mockup: 'general_phone_mockup.png', lang: 'en' },
+    'FR': { jersey: 'camiseta_francia.png', mockup: 'francia_phone_mockup.png', lang: 'fr' },
+    'DE': { jersey: 'camiseta_germany.png', mockup: 'germany_phone_mockup.png', lang: 'en' },
+    'IT': { jersey: 'camiseta_italy.png', mockup: 'general_phone_mockup.png', lang: 'en' }
   };
-  
+
+  const translations = {
+    es: {
+      title: 'Mundial 2026 - El Mundial No Se Mira. Se Juega.',
+      headline1: 'EL MUNDIAL',
+      headline2: 'NO SE MIRA.',
+      headline3: 'SE JUEGA.',
+      cta: 'CREAR MI LEGADO AHORA',
+      card: 'Tarjeta de Legado Ultimate',
+      business: 'EL NEGOCIO',
+      ambassadors: 'Embajadores Ganan Siempre',
+      createLeague: 'Armá',
+      yourLeague: 'Tu Liga',
+      payments: 'Pagos',
+      automatic: 'Automáticos',
+      earnPct: 'Cobrá %',
+      perOrganizer: 'Por Organizador',
+      jackpotLabel: 'Pozo Acumulado Actual:',
+      paymentMethods: 'Métodos de Pago Aceptados',
+      prize: 'Premio Mega Pozo',
+      finalNYC: 'La Final NYC',
+      signedJersey: '+ Camiseta firmada por los campeones del mundo',
+      earlyAccess: 'Acceso anticipado para los primeros 1,000 usuarios',
+      legal: 'AVISO LEGAL:',
+      legalText: 'Copa2026.app es una plataforma independiente de juegos de habilidad y pronósticos deportivos. No estamos afiliados con la FIFA ni con ninguno de sus comités organizadores.'
+    },
+    pt: {
+      title: 'Copa 2026 - A Copa Não Se Assiste. Se Joga.',
+      headline1: 'A COPA',
+      headline2: 'NÃO SE ASSISTE.',
+      headline3: 'SE JOGA.',
+      cta: 'CRIAR MEU LEGADO AGORA',
+      card: 'Cartão de Legado Ultimate',
+      business: 'O NEGÓCIO',
+      ambassadors: 'Embaixadores Sempre Ganham',
+      createLeague: 'Crie',
+      yourLeague: 'Seu Bolão',
+      payments: 'Pagamentos',
+      automatic: 'Automáticos',
+      earnPct: 'Ganhe %',
+      perOrganizer: 'Por Organizador',
+      jackpotLabel: 'Prêmio Acumulado Atual:',
+      paymentMethods: 'Métodos de Pagamento Aceitos',
+      prize: 'Prêmio Mega Bolão',
+      finalNYC: 'A Final NYC',
+      signedJersey: '+ Camisa autografada pelos campeões do mundo',
+      earlyAccess: 'Acesso antecipado para os primeiros 1.000 usuários',
+      legal: 'AVISO LEGAL:',
+      legalText: 'Copa2026.app é uma plataforma independente de jogos de habilidade e previsões esportivas. Não somos afiliados à FIFA nem a nenhum de seus comitês organizadores.'
+    },
+    en: {
+      title: 'World Cup 2026 - The World Cup Is Not Watched. It Is Played.',
+      headline1: 'THE WORLD CUP',
+      headline2: 'IS NOT WATCHED.',
+      headline3: 'IT IS PLAYED.',
+      cta: 'CREATE MY LEGACY NOW',
+      card: 'Ultimate Legacy Card',
+      business: 'THE BUSINESS',
+      ambassadors: 'Ambassadors Always Win',
+      createLeague: 'Create',
+      yourLeague: 'Your League',
+      payments: 'Payments',
+      automatic: 'Automatic',
+      earnPct: 'Earn %',
+      perOrganizer: 'Per Organizer',
+      jackpotLabel: 'Current Jackpot:',
+      paymentMethods: 'Accepted Payment Methods',
+      prize: 'Mega Jackpot Prize',
+      finalNYC: 'The NYC Final',
+      signedJersey: '+ Jersey signed by world champions',
+      earlyAccess: 'Early access for the first 1,000 users',
+      legal: 'LEGAL NOTICE:',
+      legalText: 'Copa2026.app is an independent skill gaming and sports prediction platform. We are not affiliated with FIFA or any of its organizing committees.'
+    },
+    fr: {
+      title: 'Coupe du Monde 2026 - La Coupe Ne Se Regarde Pas. Elle Se Joue.',
+      headline1: 'LA COUPE',
+      headline2: 'NE SE REGARDE PAS.',
+      headline3: 'ELLE SE JOUE.',
+      cta: 'CRÉER MON HÉRITAGE',
+      card: 'Carte Héritage Ultimate',
+      business: 'LE BUSINESS',
+      ambassadors: 'Les Ambassadeurs Gagnent Toujours',
+      createLeague: 'Créez',
+      yourLeague: 'Votre Ligue',
+      payments: 'Paiements',
+      automatic: 'Automatiques',
+      earnPct: 'Gagnez %',
+      perOrganizer: 'Par Organisateur',
+      jackpotLabel: 'Cagnotte Actuelle:',
+      paymentMethods: 'Méthodes de Paiement Acceptées',
+      prize: 'Méga Prix',
+      finalNYC: 'La Finale NYC',
+      signedJersey: '+ Maillot signé par les champions du monde',
+      earlyAccess: 'Accès anticipé pour les 1 000 premiers utilisateurs',
+      legal: 'AVIS LÉGAL:',
+      legalText: 'Copa2026.app est une plateforme indépendante de jeux de compétence et de pronostics sportifs. Nous ne sommes pas affiliés à la FIFA ni à aucun de ses comités organisateurs.'
+    }
+  };
+
   try {
     const res = await fetch('https://ipapi.co/country/');
-    const country = await res.text();
-    const data = countryData[country.trim()];
+    const country = await res.text().then(c => c.trim());
+    const data = countryData[country] || { jersey: 'jersey.png', mockup: 'general_phone_mockup.png', lang: 'en' };
+    const t = translations[data.lang] || translations.en;
+
+    // Update images
+    const jerseyImg = document.querySelector('img[alt="Camiseta Argentina Firmada"]');
+    const mockupImg = document.querySelector('img[alt="Tarjeta de Predicción"]');
+    if (jerseyImg) { jerseyImg.src = 'assets/jerseys/' + data.jersey; jerseyImg.alt = 'Camiseta Firmada'; }
+    if (mockupImg) { mockupImg.src = 'assets/mockups/' + data.mockup; }
+
+    // Update texts
+    document.title = t.title;
+    document.querySelectorAll('h1')[0].innerHTML = t.headline1 + '<br><span class="text-gray-400">' + t.headline2 + '</span><br><span class="gold-text">' + t.headline3 + '</span>';
     
-    if (data) {
-      const jerseyImg = document.querySelector('img[alt="Camiseta Argentina Firmada"]');
-      const mockupImg = document.querySelector('img[alt="Tarjeta de Predicción"]');
-      
-      if (jerseyImg) {
-        jerseyImg.src = 'assets/jerseys/' + data.jersey;
-        jerseyImg.alt = 'Camiseta Firmada';
-      }
-      if (mockupImg) {
-        mockupImg.src = 'assets/mockups/' + data.mockup;
-      }
+    const ctaButtons = document.querySelectorAll('a[href*="register"]');
+    ctaButtons.forEach(btn => btn.textContent = t.cta);
+
+    // Find and update specific texts
+    const allText = document.body.innerHTML;
+    document.body.innerHTML = allText
+      .replace('Tarjeta de Legado Ultimate', t.card)
+      .replace('EL NEGOCIO', t.business)
+      .replace('Embajadores Ganan Siempre', t.ambassadors)
+      .replace('>Armá<', '>' + t.createLeague + '<')
+      .replace('>Tu Liga<', '>' + t.yourLeague + '<')
+      .replace('>Pagos<', '>' + t.payments + '<')
+      .replace('>Automáticos<', '>' + t.automatic + '<')
+      .replace('>Cobrá %<', '>' + t.earnPct + '<')
+      .replace('>Por Organizador<', '>' + t.perOrganizer + '<')
+      .replace('Pozo Acumulado Actual:', t.jackpotLabel)
+      .replace('Métodos de Pago Aceptados', t.paymentMethods)
+      .replace('Premio Mega Pozo', t.prize)
+      .replace('La Final NYC', t.finalNYC)
+      .replace('+ Camiseta firmada por los campeones del mundo', t.signedJersey)
+      .replace('Acceso anticipado para los primeros 1,000 usuarios', t.earlyAccess)
+      .replace(/<strong>AVISO LEGAL:<\/strong>[^<]+/, '<strong>' + t.legal + '</strong> ' + t.legalText);
+
+    // Reinitialize jackpot counter after innerHTML replacement
+    const jackpotEl = document.getElementById('jackpot');
+    if (jackpotEl) {
+      let amount = 15574.00;
+      setInterval(() => {
+        amount += Math.random() * 2 + 0.5;
+        jackpotEl.innerText = amount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      }, 3000);
     }
+
   } catch (e) {
-    console.log('Using default assets');
+    console.log('Using default assets/language:', e);
   }
 })();
 </script>
