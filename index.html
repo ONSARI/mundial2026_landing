@@ -196,7 +196,7 @@
                     <p class="text-gray-400 text-sm mb-4">Tarjeta de Legado Ultimate</p>
                     
                     <div class="phone-container">
-                        <img src="assets/phone-mockup.png" alt="Tarjeta de Predicción" 
+                        <img src="assets/mockups/argentina_phone_mockup.png" alt="Tarjeta de Predicción" 
                              class="w-full max-w-sm mx-auto phone-float">
                     </div>
                 </div>
@@ -299,7 +299,7 @@
                 <p class="text-gray-400 text-base md:text-lg">+ Camiseta firmada por los campeones del mundo</p>
             </div>
             <div class="w-64 md:w-80 lg:w-96">
-                <img src="assets/jersey.png" alt="Camiseta Argentina Firmada" class="w-full jersey-float">
+                <img src="assets/jerseys/jersey.png" alt="Camiseta Argentina Firmada" class="w-full jersey-float">
             </div>
         </div>
     </section>
@@ -343,3 +343,43 @@
     </script>
 </body>
 </html>
+<script>
+// Detectar país y cambiar camiseta + mockup
+(async function() {
+  const countryData = {
+    'AR': { jersey: 'jersey.png', mockup: 'argentina_phone_mockup.png' },
+    'BR': { jersey: 'camiseta_brazil.png', mockup: 'brazil_phone_mockup.png' },
+    'MX': { jersey: 'camiseta_mexico.png', mockup: 'mexico_phone_mockup.png' },
+    'CO': { jersey: 'camiseta_colombia.png', mockup: 'colombia_phone_mockup.png' },
+    'ES': { jersey: 'camiseta_espana.png', mockup: 'espana_phone_mockup.png' },
+    'US': { jersey: 'camiseta_usa.png', mockup: 'usa_phone_mockup.png' },
+    'GB': { jersey: 'camiseta_england.png', mockup: 'england_phone_mockup.png' },
+    'FR': { jersey: 'camiseta_francia.png', mockup: 'francia_phone_mockup.png' },
+    'DE': { jersey: 'camiseta_germany.png', mockup: 'germany_phone_mockup.png' },
+    'PT': { jersey: 'camiseta_portugal.png', mockup: 'portugal_phone_mockup.png' },
+    'CA': { jersey: 'camiseta_usa.png', mockup: 'canada_phone_mockup.png' },
+    'IT': { jersey: 'camiseta_italy.png', mockup: 'general_phone_mockup.png' }
+  };
+  
+  try {
+    const res = await fetch('https://ipapi.co/country/');
+    const country = await res.text();
+    const data = countryData[country.trim()];
+    
+    if (data) {
+      const jerseyImg = document.querySelector('img[alt="Camiseta Argentina Firmada"]');
+      const mockupImg = document.querySelector('img[alt="Tarjeta de Predicción"]');
+      
+      if (jerseyImg) {
+        jerseyImg.src = 'assets/jerseys/' + data.jersey;
+        jerseyImg.alt = 'Camiseta Firmada';
+      }
+      if (mockupImg) {
+        mockupImg.src = 'assets/mockups/' + data.mockup;
+      }
+    }
+  } catch (e) {
+    console.log('Using default assets');
+  }
+})();
+</script>
