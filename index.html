@@ -374,6 +374,15 @@
       earlyAccess: 'Acceso anticipado para los primeros 1,000 usuarios',
       legal: 'AVISO LEGAL:',
       legalText: 'Copa2026.app es una plataforma independiente de juegos de habilidad y pronósticos deportivos. No estamos afiliados con la FIFA ni con ninguno de sus comités organizadores.'
+      subtitle: 'Creá tu predicción. Desafiá a tus amigos.',
+      subtitle2: 'Jugá por el Honor o por Premios reales.',
+      byHonor: '🏆 Por el Honor',
+      byPrize: '💰 Por Premios',
+      fullTournament: 'Torneo Completo',
+      groupStage: 'Fase de Grupos',
+      knockoutStage: 'Fase de Llaves',
+      myTeam: 'Mi Equipo',
+      oneMatch: 'Un Partido'
     },
     pt: {
       title: 'Copa 2026 - A Copa Não Se Assiste. Se Joga.',
@@ -398,6 +407,15 @@
       earlyAccess: 'Acesso antecipado para os primeiros 1.000 usuários',
       legal: 'AVISO LEGAL:',
       legalText: 'Copa2026.app é uma plataforma independente de jogos de habilidade e previsões esportivas. Não somos afiliados à FIFA nem a nenhum de seus comitês organizadores.'
+      subtitle: 'Crie sua previsão. Desafie seus amigos.',
+      subtitle2: 'Jogue pela Honra ou por Prêmios reais.',
+      byHonor: '🏆 Pela Honra',
+      byPrize: '💰 Por Prêmios',
+      fullTournament: 'Torneio Completo',
+      groupStage: 'Fase de Grupos',
+      knockoutStage: 'Fase Eliminatória',
+      myTeam: 'Meu Time',
+      oneMatch: 'Um Jogo'
     },
     en: {
       title: 'World Cup 2026 - The World Cup Is Not Watched. It Is Played.',
@@ -422,6 +440,15 @@
       earlyAccess: 'Early access for the first 1,000 users',
       legal: 'LEGAL NOTICE:',
       legalText: 'Copa2026.app is an independent skill gaming and sports prediction platform. We are not affiliated with FIFA or any of its organizing committees.'
+      subtitle: 'Create your prediction. Challenge your friends.',
+      subtitle2: 'Play for Honor or for Real Prizes.',
+      byHonor: '🏆 For Honor',
+      byPrize: '💰 For Prizes',
+      fullTournament: 'Full Tournament',
+      groupStage: 'Group Stage',
+      knockoutStage: 'Knockout Stage',
+      myTeam: 'My Team',
+      oneMatch: 'One Match'
     },
     fr: {
       title: 'Coupe du Monde 2026 - La Coupe Ne Se Regarde Pas. Elle Se Joue.',
@@ -446,6 +473,15 @@
       earlyAccess: 'Accès anticipé pour les 1 000 premiers utilisateurs',
       legal: 'AVIS LÉGAL:',
       legalText: 'Copa2026.app est une plateforme indépendante de jeux de compétence et de pronostics sportifs. Nous ne sommes pas affiliés à la FIFA ni à aucun de ses comités organisateurs.'
+      subtitle: 'Créez votre pronostic. Défiez vos amis.',
+      subtitle2: 'Jouez pour l'Honneur ou pour des Prix réels.',
+      byHonor: '🏆 Pour l'Honneur',
+      byPrize: '💰 Pour des Prix',
+      fullTournament: 'Tournoi Complet',
+      groupStage: 'Phase de Groupes',
+      knockoutStage: 'Phase Éliminatoire',
+      myTeam: 'Mon Équipe',
+      oneMatch: 'Un Match'
     }
   };
 
@@ -486,6 +522,15 @@
       .replace('La Final NYC', t.finalNYC)
       .replace('+ Camiseta firmada por los campeones del mundo', t.signedJersey)
       .replace('Acceso anticipado para los primeros 1,000 usuarios', t.earlyAccess)
+      .replace('Creá tu predicción. Desafiá a tus amigos.', t.subtitle)
+      .replace('Jugá por el Honor o por Premios reales.', t.subtitle2)
+      .replace('🏆 Por el Honor', t.byHonor)
+      .replace('💰 Por Premios', t.byPrize)
+      .replace('>Torneo Completo<', '>' + t.fullTournament + '<')
+      .replace('>Fase de Grupos<', '>' + t.groupStage + '<')
+      .replace('>Fase de Llaves<', '>' + t.knockoutStage + '<')
+      .replace('>Mi Equipo<', '>' + t.myTeam + '<')
+      .replace('>Un Partido<', '>' + t.oneMatch + '<')
       .replace(/<strong>AVISO LEGAL:<\/strong>[^<]+/, '<strong>' + t.legal + '</strong> ' + t.legalText);
 
     // Reinitialize jackpot counter after innerHTML replacement
