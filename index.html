@@ -435,8 +435,8 @@
   };
 
   try {
-    const res = await fetch('https://ip-api.com/json/?fields=countryCode');
-    const country = await res.json().then(data => data.countryCode);
+    const res = await fetch('https://ipinfo.io/json');
+    const country = await res.json().then(data => data.country);
     const data = countryData[country] || { jersey: 'jersey.png', mockup: 'general_phone_mockup.png', lang: 'en' };
     const t = translations[data.lang] || translations.en;
 
