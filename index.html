@@ -310,21 +310,6 @@
         </div>
     </footer>
 
-    <script>
-        const jackpotElement = document.getElementById('jackpot');
-        let currentAmount = 15574.00;
-
-        function updateJackpot() {
-            const increment = Math.random() * 2 + 0.5;
-            currentAmount += increment;
-            jackpotElement.innerText = currentAmount.toLocaleString('en-US', {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-            });
-        }
-
-        setInterval(updateJackpot, 3000);
-    </script>
 </body>
 </html>
 <script>
@@ -450,8 +435,8 @@
   };
 
   try {
-    const res = await fetch('https://ipapi.co/country/');
-    const country = await res.text().then(c => c.trim());
+    const res = await fetch('https://ip-api.com/json/?fields=countryCode');
+    const country = await res.json().then(data => data.countryCode);
     const data = countryData[country] || { jersey: 'jersey.png', mockup: 'general_phone_mockup.png', lang: 'en' };
     const t = translations[data.lang] || translations.en;
 
